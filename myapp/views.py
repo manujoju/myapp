@@ -1,5 +1,8 @@
 
+from multiprocessing import context
+from pydoc import render_doc
 from django.shortcuts import HttpResponse
+from django.shortcuts import render
 
 # Create your views here.
 def index(request):
@@ -7,4 +10,13 @@ def index(request):
         "name":"arun",
         "age":30,
     }
-    return HttpResponse("<b>hello world</b>")
+    li = ["manu","ar","max"]
+    
+    for i in range(0,10):
+        print (i)
+    context ={'li':li}
+        
+    return render (request, 'index.html',context=context)
+
+def new_one(request):
+    return HttpResponse("this is new")
