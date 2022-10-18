@@ -4,6 +4,8 @@ from pydoc import render_doc
 from django.shortcuts import HttpResponse
 from django.shortcuts import render
 
+from myapp.models import product
+
 # Create your views here.
 def index(request):
     d = {
@@ -20,3 +22,8 @@ def index(request):
 
 def new_one(request):
     return HttpResponse("this is new")
+
+def products(request):
+    p = product.objects.all()
+    context = {'products':p}
+    return render(request, 'myapp/products.html',context=context)
