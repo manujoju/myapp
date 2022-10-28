@@ -40,10 +40,10 @@
     {% for p in products %}
     <ol>
         <h2 style="text-align:center">Product Card</h2>
-        <a href="/myapp/products/{{p.id}}">
+        <a href="{% url 'product_details' p.id %}">
 
 <div class="card">
-  <img src="https://m.media-amazon.com/images/I/61IJBsHm97L._SL1500_.jpg" alt="Denim Jeans" style="width:100%">
+  <img src="{{p.image.url}}" alt="Image not found" style="width: 200px">
   <h1>{{p.name}}</h1>
   <p class="price">₹{{p.price}}</p>
   <p>{{p.description}}</p>
