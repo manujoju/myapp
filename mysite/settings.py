@@ -27,6 +27,10 @@ SECRET_KEY = 'django-insecure-ykr4w1j(_+e7&z%b1&ztirmzl^i(_s_7afwta8v9&7hp6pni+-
 DEBUG = True
 
 ALLOWED_HOSTS = []
+INTERNAL_IPS = [
+    "127.0.0.1",
+    "localhost"
+]
 
 
 # Application definition
@@ -38,7 +42,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'myapp'
+    'myapp',
+    'tailwind',
+    'theme',
+    'django_browser_reload'
 ]
 
 MIDDLEWARE = [
@@ -49,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django_browser_reload.middleware.BrowserReloadMiddleware"
 ]
 
 ROOT_URLCONF = 'mysite.urls'
@@ -126,3 +134,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media/')
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+TAILWIND_APP_NAME = 'theme'
+NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
+
